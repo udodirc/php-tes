@@ -31,6 +31,7 @@ services:
     image: mysql:latest
     volumes:
       - test-db-vol:/var/lib/mysql
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: ${DB_USERNAME}
