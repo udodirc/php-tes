@@ -5,5 +5,7 @@
             "Root\\Html\\": "src/"
         }
     },
-    "require": {}
+    "require": {
+      "ext-pdo": "*"
+    }
 }

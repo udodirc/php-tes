@@ -1,17 +1,18 @@
 <?php
 namespace core;
 
+use Exception;
 use PDO;
 use PDOException;
 
 class Database {
-    private static $instance = null;
-    private $connection;
+    private static Database|null $instance = null;
+    private PDO $connection;
 
-    private $host = 'mysql';  // DB host
-    private $dbname = 'test'; // DB name
-    private $username = 'test'; // DB username
-    private $password = 'test'; // DB password
+    private string $host = 'localhost';  // DB host
+    private string $dbname = 'test'; // DB name
+    private string $username = 'test'; // DB username
+    private string $password = 'test'; // DB password
 
     private function __construct() {
         try {
@@ -27,9 +28,10 @@ class Database {
     }
 
     // The singleton method to get the database instance
-    public static function getInstance() {
+    public static function getInstance(): PDO
+    {
         if (!self::$instance) {
-            self::$instance = new Database();
+            self::$instance = new self();
         }
         return self::$instance->connection;
     }

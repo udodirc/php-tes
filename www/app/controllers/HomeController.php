@@ -6,16 +6,16 @@ use app\models\UserModel;
 
 class HomeController extends Controller
 {
-    public function index() {
+    public function index(): void
+    {
         $this->view('home');
     }
 
-    public function showUser() {
-        $users = [
-            new UserModel('user', 'user@test.com'),
-            new UserModel('user2', 'user2@test.com'),
-            new UserModel('user3', 'user3@test.com')
-        ];
+    public function showUser(): void
+    {
+        $user = new UserModel();
+        $users = $user->getUsers();
+
         $this->view('users', ['users' => $users]);
     }
 }

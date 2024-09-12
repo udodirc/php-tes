@@ -7,9 +7,11 @@
 <body>
 <h1>Welcome to the Home Page</h1>
 <ul>
-    <?php foreach ($users as $user) : ?>
-        <li><?= $user->name ?> (<?= $user->email ?>)</li>
-    <?php endforeach; ?>
+    <?php if (!empty($users)){ ?>
+        <?php foreach ($users as $user): ?>
+            <li><?= $user->first_name ?> (<?= $user->second_name ?>)</li>
+        <?php endforeach; ?>
+    <?php } ?>
 </ul>
 </body>
 </html>
