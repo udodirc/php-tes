@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-include 'layout/header.php';  // Include the header section
-include 'layout/menu.php';    // Include the body section
+include __DIR__ . '/../layout/header.php';  // Include the header section
+include __DIR__ . '/../layout/menu.php';    // Include the body section
 ?>
 <div class="container mt-5">
     <h1>Покупатели</h1>
@@ -34,6 +34,6 @@ include 'layout/menu.php';    // Include the body section
 </div>
 <!-- Footer -->
 <?php
-include 'layout/footer.php';  // Include the footer section
+include __DIR__ . '/../layout/footer.php';  // Include the footer section
 ?>
 </html>

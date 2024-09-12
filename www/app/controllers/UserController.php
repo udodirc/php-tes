@@ -7,11 +7,13 @@ use app\models\UserModel;
 
 class UserController extends Controller
 {
-    public function users(): void
-    {
-        $user = new UserModel();
-        $users = $user->getUsers();
+    private UserModel $user;
 
-        $this->view('users', ['users' => $users]);
+    public function __construct() {
+        $this->user = new UserModel();
+    }
+    public function index(): void
+    {
+        $this->view('users/index', ['users' => $this->user->users()]);
     }
 }

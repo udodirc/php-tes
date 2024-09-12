@@ -6,7 +6,7 @@ use core\Model;
 
 class UserModel extends Model
 {
-    public function getUsers(): array|false
+    public function users(): array|false
     {
         $query = "select `user`.`first_name`, `user`.`second_name`, `products`.`title`, `products`.`price`
         from `user`

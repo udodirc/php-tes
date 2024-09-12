@@ -15,7 +15,7 @@
                     <a class="nav-link" href="/users">Покупатели</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
+                    <a class="nav-link" href="/products">Товары</a>
                 </li>
             </ul>
         </div>

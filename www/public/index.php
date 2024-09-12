@@ -1,6 +1,7 @@
 <?php
 // Autoload core files using namespaces and PSR-4 autoloading
 use app\controllers\HomeController;
+use app\controllers\ProductController;
 use app\controllers\UserController;
 use core\Router;
 
@@ -15,7 +16,8 @@ $router = new Router();
 
 // Define routess
 $router->add('/', [new HomeController(), 'index']);
-$router->add('/users', [new UserController(), 'users']);
+$router->add('/users', [new UserController(), 'index']);
+$router->add('/products', [new ProductController(), 'index']);
 
 // Get the requested URL
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
