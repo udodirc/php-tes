@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body>
-<h1>Welcome to the Home Page</h1>
-</body>
+<?php
+include 'layout/header.php';  // Include the header section
+include 'layout/menu.php';    // Include the body section
+?>
+<div class="container mt-5">
+
+</div>
+<!-- Footer -->
+<?php
+include 'layout/footer.php';  // Include the footer section
+?>
 </html>
