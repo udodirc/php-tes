@@ -35,8 +35,14 @@ class ProductController extends Controller
         $data = Validation::validate($validationRules);
 
         if (empty($data['errors'])) {
-            if($this->product->store($this->product->tableName, $data['data'])){
-                $this->redirect('products');
+            if(!$this->product->checkIfExist($this->product->tableName, [
+                'title' => $data['data']['title']
+            ])) {
+                if ($this->product->store($this->product->tableName, $data['data'])) {
+                    $this->redirect('products');
+                }
+            } else {
+                $data['errors']['title'] = 'Этот товар уже есть!';
             }
         }
 

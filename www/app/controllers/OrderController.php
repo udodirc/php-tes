@@ -38,12 +38,8 @@ class OrderController extends Controller
         $data = Validation::validate($validationRules);
 
         if (empty($data['errors'])) {
-            if(!$this->order->checkIfExist($this->order->tableName, $data['data'])){
-                if($this->order->store($this->order->tableName, $data['data'])){
-                    $this->redirect('users');
-                }
-            } else {
-                $data['errors']['user_id'] = 'Этот товар уже есть!';
+            if($this->order->store($this->order->tableName, $data['data'])){
+                $this->redirect('users');
             }
         }
 

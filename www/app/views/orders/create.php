@@ -3,10 +3,6 @@
 <?php
 include __DIR__ . '/../layout/header.php';  // Include the header section
 include __DIR__ . '/../layout/menu.php';    // Include the body section
-
-if (!empty($errors)){
-    print_r($errors);
-}
 ?>
 <div class="container mt-5">
     <div class="row">
@@ -22,6 +18,11 @@ if (!empty($errors)){
                             <?php endforeach; ?>
                         <?php } ?>
                     </select>
+                    <?php if(!empty($errors['user_id'])) {?>
+                        <div>
+                            <?= $errors['user_id']; ?>
+                        </div>
+                    <?php } ?>
                 </div>
                 <div class="mb-3">
                     <label for="product_id" class="form-label">Товары</label>
@@ -33,6 +34,11 @@ if (!empty($errors)){
                             <?php endforeach; ?>
                         <?php } ?>
                     </select>
+                    <?php if(!empty($errors['product_id'])) {?>
+                        <div>
+                            <?= $errors['product_id']; ?>
+                        </div>
+                    <?php } ?>
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Создать</button>
             </form>
