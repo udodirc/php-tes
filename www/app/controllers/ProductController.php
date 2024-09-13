@@ -3,15 +3,18 @@
 namespace app\controllers;
 
 use app\models\ProductModel;
+use app\models\UserModel;
 use core\Controller;
 use core\Validation;
 
 class ProductController extends Controller
 {
     private ProductModel $product;
+    private UserModel $user;
 
     public function __construct() {
         $this->product = new ProductModel();
+        $this->user = new UserModel();
     }
     public function index(): void
     {
@@ -20,7 +23,7 @@ class ProductController extends Controller
 
     public function create(): void
     {
-        $this->view('products/create', []);
+        $this->view('products/create', ['users' => $this->user->users()]);
     }
 
     public function store(): void
@@ -33,7 +36,7 @@ class ProductController extends Controller
 
         if (empty($data['errors'])) {
             if($this->product->store($data['data'])){
-                $this->redirect('products');
+                $this->redirect('users');
             }
         }
 

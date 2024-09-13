@@ -25,6 +25,12 @@ class Validation
                             $errors[$field] = "Значение в поле {$field} неверное!";
                         }
                     }
+
+                    if ($rule == "is_int") {
+                        if (!is_int($fieldValue)) {
+                            $errors[$field] = "Значение в поле {$field} неверное!";
+                        }
+                    }
                 }
 
                 if (empty($errors)){

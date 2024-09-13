@@ -61,4 +61,14 @@ class Model
 
         return $query;
     }
+
+    public function getLastRow(string $tableName): array|false
+    {
+        $query = "SELECT * FROM `{$tableName}` ORDER BY `id` DESC LIMIT 1";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+
+        return $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }

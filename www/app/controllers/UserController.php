@@ -14,6 +14,6 @@ class UserController extends Controller
     }
     public function index(): void
     {
-        $this->view('users/index', ['users' => $this->user->users()]);
+        $this->view('users/index', ['users' => $this->user->usersWares()]);
     }
 }
