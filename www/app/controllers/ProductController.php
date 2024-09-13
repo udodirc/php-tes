@@ -35,8 +35,8 @@ class ProductController extends Controller
         $data = Validation::validate($validationRules);
 
         if (empty($data['errors'])) {
-            if($this->product->store($data['data'])){
-                $this->redirect('users');
+            if($this->product->store($this->product->tableName, $data['data'])){
+                $this->redirect('products');
             }
         }
 

@@ -5,7 +5,7 @@ include __DIR__ . '/../layout/header.php';  // Include the header section
 include __DIR__ . '/../layout/menu.php';    // Include the body section
 ?>
 <div class="container mt-5">
-    <h1>Покупатели</h1>
+    <h1>Покупатели<a class="btn btn-primary" href="/orders/create" role="button">Добавить товар</a></h1>
         <?php if (!empty($users)){ ?>
         <!-- Responsive Table -->
         <div class="table-responsive">

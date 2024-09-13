@@ -2,7 +2,6 @@
 
 namespace core;
 
-use core\Database;
 use PDO;
 use PDOStatement;
 
@@ -30,6 +29,11 @@ class Model
 
         // Execute the statement
         return $stmt->execute();
+    }
+
+    public function store(string $tableName, array $data): bool
+    {
+        return $this->save($tableName, $data);
     }
 
     public static function bindParams(PDOStatement $stmt, array $data): void
@@ -70,5 +74,29 @@ class Model
         $stmt->execute();
 
         return $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function checkIfExist(string $tableName, array $data): array|false
+    {
+        $query = "";
+
+        if (!empty($data)) {
+            $query = "SELECT * FROM `{$tableName}` ";
+            end($data);
+            $lastElement = key($data);
+            $fields = "";
+
+            foreach ($data as $field => $value) {
+                $fields.= ($field == $lastElement) ? "`{$field}` = :{$field}" : "`{$field}` = :{$field} and ";
+            }
+
+            $query.= "WHERE {$fields} LIMIT 1";
+        }
+
+        $stmt = $this->db->prepare($query);
+        static::bindParams($stmt, $data);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
