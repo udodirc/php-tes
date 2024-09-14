@@ -1,28 +1,15 @@
 # Project Title
 
-This is a description of the project.
-
-## Features
-
-- Feature 1
-- Feature 2
+Приложение по созданию заказов от покупателей
 
 ## HTML Example
 
-Here is an example of an HTML table embedded in this README file:
-
 <table>
   <tr>
-    <th>Header 1</th>
-    <th>Header 2</th>
-  </tr>
-  <tr>
-    <td>Row 1, Col 1</td>
-    <td>Row 1, Col 2</td>
-  </tr>
-  <tr>
-    <td>Row 2, Col 1</td>
-    <td>Row 2, Col 2</td>
+    <td>Написать код, который реализует взаимодействие клиент-сервер.</td>
+    <td>Код нужно написать без использования PHP фреймворков и сторонних библиотек.</td>
+    <td>Написать код PHP, в котором нужно от клиента принять данные по товарам и записывають их в таблицу products в виде нескольких записей.</td>
+    <td>При обработке параметров и данных использовать все необходимые меры безопасности, как в реальных условиях.</td>
   </tr>
 </table>
 

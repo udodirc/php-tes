@@ -15,7 +15,7 @@ spl_autoload_register(function($class) {
 
 $router = new Router();
 
-// Define routess
+// Define routes
 $router->add('/', [new HomeController(), 'index']);
 $router->add('/users', [new UserController(), 'index']);
 $router->add('/products', [new ProductController(), 'index']);
